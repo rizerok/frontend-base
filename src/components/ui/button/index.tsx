@@ -15,7 +15,7 @@ const UiButton = styled.button<UiButtonProps>`
   font-weight: 600;
   font-size: 16px;
   transition: background-color .2s;
-  ${(props): string => props.isFluid ? 'width: 100%;' : ''}
+  ${(props): string => (props.isFluid ? 'width: 100%;' : '')}
   
   :hover {
     background: ${darken(0.1)('#96def6')};

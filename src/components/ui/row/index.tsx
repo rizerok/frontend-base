@@ -6,7 +6,7 @@ interface UiRowProps {
 
 const UiRow = styled.div<UiRowProps>`
   & + & {
-    margin-top: ${({indent}): string => indent};
+    margin-top: ${({ indent }): string => indent};
   }
 `;
 

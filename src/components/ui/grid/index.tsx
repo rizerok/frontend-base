@@ -46,9 +46,11 @@ const GridContainer = styled.div<GridContainerInterface>`
 
 const handlePropsInjecting = (
   element: ReactFunctionElement,
-  { indentX, indentY, columnCount, maxWidth, isEqualHeight }: UiGridCellInjectedProps
+  {
+    indentX, indentY, columnCount, maxWidth, isEqualHeight
+  }: UiGridCellInjectedProps
 ): InjectedProps => {
-  switch(element.type) {
+  switch (element.type) {
   case UiGridCell: {
     return {
       indentX,
@@ -66,12 +68,12 @@ const handlePropsInjecting = (
 
 const injectProps = (
   element: ReactFunctionElement, props: UiGridCellInjectedProps
-): ReactElement => {
-  return cloneElement(element, handlePropsInjecting(element, props));
-};
+): ReactElement => cloneElement(element, handlePropsInjecting(element, props));
 
 const UiGrid: React.FC<UiGridProps> = (
-  { indent, column, isEqualHeight, children }: UiGridProps
+  {
+    indent, column, isEqualHeight, children
+  }: UiGridProps
 ) => {
   const indentX = typeof indent === 'number'
     ? indent

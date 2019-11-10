@@ -1,6 +1,7 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
+    'airbnb-base',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended'
   ],
@@ -13,7 +14,6 @@ module.exports = {
   },
   env: {
     browser: true,
-    node: true,
     es6: true
   },
   plugins: [],
@@ -36,11 +36,19 @@ module.exports = {
     'space-before-blocks': 'error',
     'func-names': 'error',
     'arrow-spacing': 'error',
-    'arrow-parens': 'off'
+    'arrow-parens': 'off',
+    'no-shadow': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'react/jsx-uses-vars': 2,
+    'react/jsx-uses-react': 2
   },
   settings: {
     react: {
       version: 'detect'
+    },
+    'import/resolver': {
+      node: true,
+      'eslint-import-resolver-typescript': true
     }
   }
 };

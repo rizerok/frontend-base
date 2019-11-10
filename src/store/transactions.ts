@@ -73,27 +73,27 @@ export default function reducer(
   }
 }
 
-export const getTransactions = (walletId: string) =>
-  (dispatch: Dispatch<ActionsTransaction>): void => {
-    dispatch(actionTransactionRequestStart);
-    fetch(`https://api-test.wavesplatform.com/v0/transactions/all?sender=${walletId}`)
-      .then((res) => res.json())
-      .then(({ data }) => {
-        dispatch(actionTransactionSet(data));
-      })
-      .catch(() => {
-        dispatch(actionTransactionSet([]));
-      })
-      .finally(() => {
-        dispatch(actionTransactionRequestEnd);
-      });
-  };
-
-const isEqualFields = (filterObj: Partial<Transaction>, obj: Transaction): boolean => {
-  return Object.keys(filterObj).every(filterKey => {
-    return filterObj[filterKey] === obj[filterKey];
-  });
+export const getTransactions = (walletId: string) => (
+  dispatch: Dispatch<ActionsTransaction>
+): void => {
+  dispatch(actionTransactionRequestStart);
+  fetch(`https://api-test.wavesplatform.com/v0/transactions/all?sender=${walletId}`)
+    .then((res) => res.json())
+    .then(({ data }) => {
+      dispatch(actionTransactionSet(data));
+    })
+    .catch(() => {
+      dispatch(actionTransactionSet([]));
+    })
+    .finally(() => {
+      dispatch(actionTransactionRequestEnd);
+    });
 };
+
+const isEqualFields = (filterObj: Partial<Transaction>, obj: Transaction): boolean => (
+  Object.keys(filterObj)
+    .every(filterKey => filterObj[filterKey] === obj[filterKey])
+);
 
 
 export const selectCategories = (
@@ -109,13 +109,10 @@ export const selectCategories = (
         list
       };
     });
-  } else {
-    return [];
   }
+  return [];
 };
 
 export const selectEmptySearch = (
   { list, requestStart, requestEnd }: TransactionsState
-): boolean => {
-  return !list.length && !requestStart && requestEnd;
-};
+): boolean => !list.length && !requestStart && requestEnd;

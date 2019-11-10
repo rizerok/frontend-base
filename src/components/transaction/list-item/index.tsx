@@ -20,7 +20,7 @@ const Image = styled.img<ImageProps>`
   width: 100%;
   height: 150px;
 
-  ${(props): string => props.isLoaded ? 'height: auto;' : '' }
+  ${(props): string => (props.isLoaded ? 'height: auto;' : '')}
 `;
 
 const grayColor = css`color: #7a89a6;`;
@@ -51,9 +51,9 @@ const Row = styled.div<RowProps>`
     margin-top: 15px;
   }
   
-  ${({isGray}): CssCondition => isGray ? grayColor : ''}
-  ${({isTitle}): CssCondition => isTitle ? title : ''}
-  ${({isBetween}): CssCondition => isBetween ? between : ''}
+  ${({ isGray }): CssCondition => (isGray ? grayColor : '')}
+  ${({ isTitle }): CssCondition => (isTitle ? title : '')}
+  ${({ isBetween }): CssCondition => (isBetween ? between : '')}
 `;
 
 const MenuButton = styled.button`
@@ -99,7 +99,7 @@ const TransactionListItem: React.FC<Transaction> = ({ dApp, timestamp }: Transac
       <TextContext>
         <Row isGray>Service • Voting</Row>
         <Row isTitle>{dApp}</Row>
-        <Row isGray>{`by Author`}</Row>
+        <Row isGray>by Author</Row>
         <Row>{timestamp}</Row>
         <Row isBetween>
           <UiButton>vote</UiButton>
