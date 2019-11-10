@@ -1,4 +1,4 @@
-/* eslint import/no-extraneous-dependencies: "off" */
+/* eslint @typescript-eslint/no-var-requires: "off" */
 const { resolve } = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -34,36 +34,6 @@ const config = {
             ]
           }
         }
-      },
-      {
-        test: /\.s?css$/,
-        exclude: resolve('src', 'assets', 'styles'),
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: process.env.NODE_ENV === 'development'
-            }
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-              importLoaders: 2,
-              modules: { localIdentName: '[path][name]-[local]' },
-              localsConvention: 'camelCaseOnly'
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'sass-loader'
-          }
-        ]
       },
       {
         test: /\.s?css$/,

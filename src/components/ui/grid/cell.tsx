@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 
 interface UiGridCellInjectedProps {
