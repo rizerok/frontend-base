@@ -1,0 +1,4 @@
+{
+  "*.(ts|tsx)": ["eslint -c ./eslint/common.eslintrc.js \"**/**.ts*\""],
+  "*.(scss)": ["stylelint \"./src/assets/styles/**/**.scss\""]
+}

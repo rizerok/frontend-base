@@ -1,0 +1,15 @@
+{
+  "extends": "stylelint-config-airbnb",
+  "rules": {
+    "string-quotes": "single",
+    "at-rule-empty-line-before": [
+      "never",
+      {
+        "ignore": ["blockless-after-same-name-blockless"]
+      }
+    ],
+    "selector-max-id": 2,
+    "declaration-block-trailing-semicolon": "always",
+    "scss/dollar-variable-colon-space-after": "always"
+  }
+}

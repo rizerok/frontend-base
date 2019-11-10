@@ -1,0 +1,14 @@
+# Compiled
+/public
+
+# Dependencies
+/node_modules
+
+# Environment file
+.env
+
+# IDEs and editors
+/.idea
+
+# MacOS specific files
+.DS_STORE
