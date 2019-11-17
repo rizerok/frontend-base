@@ -83,4 +83,5 @@ const mapDispatch = {
   getTransactions
 };
 
+export { TransactionSearch };
 export default connect(mapState, mapDispatch)(TransactionSearch);

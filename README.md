@@ -1,6 +1,7 @@
 1) Clone this repository
-2) npm i
-3) use npm scripts
+2) create ```.env``` like example ```example.env```
+3) npm i
+4) use npm scripts
 ```json
   {
       "build:dev": "NODE_ENV=development webpack --progress",

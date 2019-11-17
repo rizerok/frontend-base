@@ -3,8 +3,10 @@ const { resolve } = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
 
 const alias = require('./alias');
+const { jsRules } = require('./js-rules');
 
 const config = {
   entry: './src/index.tsx',
@@ -18,54 +20,9 @@ const config = {
   },
   module: {
     rules: [
-      {
-        test: /\.(js|jsx|tsx|ts)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react',
-              '@babel/preset-typescript'
-            ],
-            plugins: [
-              '@babel/plugin-proposal-class-properties'
-            ]
-          }
-        }
-      },
-      {
-        test: /\.s?css$/,
-        include: resolve('src', 'assets', 'styles'),
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: process.env.NODE_ENV === 'development'
-            }
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-              importLoaders: 2
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'sass-loader'
-          }
-        ]
-      },
+      jsRules,
       {
         test: /\.(png|svg|jpg|gif)$/,
-        include: resolve('src', 'assets', 'images'),
         use: [
           'file-loader'
         ]
@@ -97,6 +54,9 @@ const config = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css'
+    }),
+    new webpack.DefinePlugin({
+      WORK_LAYOUT: process.env.WORK_LAYOUT
     })
   ]
 };

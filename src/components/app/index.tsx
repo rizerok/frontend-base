@@ -1,22 +1,35 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import Helmet from 'react-helmet';
+import { renderRoutes } from 'react-router-config';
+import store from 'store';
 
-import TransactionCategories from 'components/transaction/categories';
-import TransactionSearch from 'components/transaction/search';
-import Row from 'components/ui/row';
+import StyleReset from 'styles/style-reset';
+import StyleGlobal from 'styles/style-global';
+import LayoutRoot from 'components/layout/root';
+import WorkLayout from 'utils/work-layout';
 
-const Container = styled.div`
-  margin: 0 auto;
-  max-width: 1000px;
-`;
+import favicon from 'img/favicon.png';
 
-const App: React.FC = () => <Container>
-  <Row indent="30px">
-    <TransactionSearch/>
-  </Row>
-  <Row indent="30px">
-    <TransactionCategories/>
-  </Row>
-</Container>;
+import routes from '../../routes';
+
+const App: React.FC = () => (
+  <Provider store={store}>
+    <BrowserRouter>
+      <Helmet
+        defaultTitle="React + Redux + Typescript + Styled components"
+        titleTemplate="%s – React + Redux + Typescript + Styled components"
+        link={[{ rel: 'icon', type: 'image/icon', href: favicon }]}
+      />
+      <StyleReset/>
+      <StyleGlobal/>
+      {WORK_LAYOUT && <WorkLayout/>}
+      <LayoutRoot>
+        {renderRoutes(routes)}
+      </LayoutRoot>
+    </BrowserRouter>
+  </Provider>
+);
 
 export default App;

@@ -4,11 +4,24 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "esModuleInterop": true,
     "strict": true,
+    "strictPropertyInitialization": false,
     "jsx": "preserve",
     "moduleResolution": "node",
-    "baseUrl": "./src/"
+    "baseUrl": "./",
+    "paths": {
+      "sbook/*": [".storybook/*"],
+      "styles/*": ["src/assets/styles/*"],
+      "img/*": ["src/assets/images/*"],
+      "fonts/*": ["src/assets/fonts/*"],
+      "store": ["src/store"],
+      "store/*": ["src/store/*"],
+      "components/*": ["src/components/*"],
+      "types/*": ["src/types/*"],
+      "utils/*": ["src/utils/*"],
+      "constants/*": ["src/constants/*"]
+    }
   },
-  "include": ["src"],
+  "include": ["src", ".storybook"],
   "files": [
     "declarations.d.ts"
   ]

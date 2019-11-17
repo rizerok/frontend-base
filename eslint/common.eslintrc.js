@@ -50,5 +50,8 @@ module.exports = {
       node: true,
       'eslint-import-resolver-typescript': true
     }
+  },
+  globals: {
+    WORK_LAYOUT: 'readonly'
   }
 };

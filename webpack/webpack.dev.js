@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 let devServer;
 
 function htmlReloadPlugin() {
@@ -24,11 +26,12 @@ const config = {
       devServer = server;
     },
     open: true,
-    port: 8000,
+    port: process.env.DEV_SERVER_PORT,
     contentBase: './public',
     writeToDisk: true,
     index: 'index.html',
-    hot: true
+    hot: true,
+    historyApiFallback: true
   },
   plugins: [
     htmlReloadPlugin

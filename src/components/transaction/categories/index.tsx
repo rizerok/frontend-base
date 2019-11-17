@@ -47,4 +47,5 @@ const mapProps = ({ transactions }: AppState): PropsInterface => ({
   ])
 });
 
+export { TransactionCategories };
 export default connect(mapProps)(TransactionCategories);

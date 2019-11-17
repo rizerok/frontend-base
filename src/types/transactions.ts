@@ -18,14 +18,14 @@ export interface Transaction {
   fee: number;
   height: number;
   id: string;
-  payment: Payment;
+  payment: Array<Payment>;
   proofs: Array<string>;
   sender: string;
   senderPublicKey: string;
   timestamp: string;
   type: number;
   version: number;
-  [key: string]: string | number | Call | Payment | Array<string>;
+  [key: string]: string | number | Call | Array<Payment> | Array<string>;
 }
 
 export interface TransactionListItem {

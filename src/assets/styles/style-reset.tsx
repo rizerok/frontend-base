@@ -1,3 +1,9 @@
+// import { config } from 'dotenv';
+import { createGlobalStyle } from 'styled-components';
+
+// config();
+
+const StyleReset = createGlobalStyle`
 html,
 body,
 div,
@@ -178,3 +184,16 @@ textarea,
 button {
   outline: none;
 }
+  
+* {
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    box-sizing: border-box;
+    outline: none;
+  }
+}
+`;
+
+export default StyleReset;
