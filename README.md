@@ -40,4 +40,6 @@
 ## TODO
 
 - [ ] tests for build
+- [ ] change merge logic of webpack configs with lodash
+- [ ] create initial script(change project name, remove dirs, create files)
 

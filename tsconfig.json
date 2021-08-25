@@ -9,6 +9,7 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
+      "root/*": ["./*"],
       "sbook/*": [".storybook/*"],
       "styles/*": ["src/assets/styles/*"],
       "img/*": ["src/assets/images/*"],
@@ -19,7 +20,8 @@
       "types/*": ["src/types/*"],
       "utils/*": ["src/utils/*"],
       "constants/*": ["src/constants/*"]
-    }
+    },
+    "resolveJsonModule": true
   },
   "include": ["src", ".storybook"],
   "files": [

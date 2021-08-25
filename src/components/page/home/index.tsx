@@ -5,6 +5,7 @@ import backgroundImg from 'img/homepage.png';
 import { Link } from 'react-router-dom';
 import routes from 'src/routes';
 import LayoutRoot from 'components/layout/root';
+import { homepage as repositoryUrl } from 'root/package.json';
 
 const Background = styled.div`
   background-image: url(${backgroundImg});
@@ -45,7 +46,6 @@ const NavigationList = styled.ul`
 
 const title = 'Home';
 
-
 const PageHome: React.FC = () => (
   <LayoutRoot>
     <Background>
@@ -54,6 +54,9 @@ const PageHome: React.FC = () => (
       />
       <Title>{title}</Title>
       <NavigationList>
+        <NavigationItem key={repositoryUrl}>
+          <a href={repositoryUrl} target="_blank" rel="noopener noreferrer">Repo</a>
+        </NavigationItem>
         { routes.filter(r => r.name).map(({ name, path }) => (
           <NavigationItem key={String(path)}>
             <Link to={String(path)}>{name}</Link>

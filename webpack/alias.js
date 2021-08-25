@@ -2,6 +2,7 @@
 const { resolve } = require('path');
 
 module.exports = {
+  root: resolve(),
   src: resolve('src'),
   sbook: resolve('.storybook'),
   styles: resolve('src', 'assets', 'styles'),
