@@ -1,5 +1,13 @@
-need node version 13 for node-sass !!!
+#frontend-base
+- UI: react
+- store management: redux
+- languages:
+  - index: pug
+  - styles: styled-components
+  - webpack configs: javascript
+  - project src: typescript
 
+## install
 1) Clone this repository
 2) create ```.env``` like example ```example.env```
 3) npm i
@@ -15,6 +23,7 @@ need node version 13 for node-sass !!!
     }
 ```
 
+## scripts
 `npm run build:dev` - build dev version in `/public` directory.
 
 `npm run build:prod` - build prod version in `/public` directory.
@@ -26,4 +35,9 @@ need node version 13 for node-sass !!!
 `npm run lint:fix` - try fix syntax error and warring.
 
 `npm run commit` - helper for git.
+
+
+## TODO
+
+- [ ] tests for build
 
