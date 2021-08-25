@@ -1,3 +1,5 @@
+need node version 13 for node-sass !!!
+
 1) Clone this repository
 2) create ```.env``` like example ```example.env```
 3) npm i
