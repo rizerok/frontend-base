@@ -16,12 +16,12 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rizerok/client-react-redux-typescript-styled-components.git"
+    "url": "git@github.com:rizerok/frontend-base.git"
   },
   "bugs": {
-    "url": "https://github.com/rizerok/client-react-redux-typescript-styled-components/issues"
+    "url": "https://github.com/rizerok/frontend-base/issues"
   },
-  "homepage": "https://github.com/rizerok/client-react-redux-typescript-styled-components",
+  "homepage": "https://github.com/rizerok/frontend-base",
   "devDependencies": {
     "@babel/core": "^7.5.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
