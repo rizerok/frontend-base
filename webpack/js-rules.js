@@ -1,4 +1,7 @@
 const plugins = [
+  ['babel-plugin-styled-components', {
+    fileName: false
+  }],
   '@babel/plugin-proposal-class-properties',
   [
     'babel-plugin-named-asset-import',
