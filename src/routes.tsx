@@ -11,14 +11,17 @@ const routes: Array<RouteConfig> = [
     component: PageHome
   },
   {
+    name: 'Transactions',
     path: '/transaction',
     component: PageTransaction
   },
   {
+    name: 'SVG check',
     path: '/svg-check',
     component: PageSvgCheck
   },
   {
+    name: 'Not found',
     path: '*',
     component: PageNotFound
   }

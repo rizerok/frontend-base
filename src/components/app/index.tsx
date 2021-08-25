@@ -7,7 +7,6 @@ import store from 'store';
 
 import StyleReset from 'styles/style-reset';
 import StyleGlobal from 'styles/style-global';
-import LayoutRoot from 'components/layout/root';
 import WorkLayout from 'utils/work-layout';
 
 import favicon from 'img/favicon.png';
@@ -25,9 +24,7 @@ const App: React.FC = () => (
       <StyleReset/>
       <StyleGlobal/>
       {WORK_LAYOUT && <WorkLayout/>}
-      <LayoutRoot>
-        {renderRoutes(routes)}
-      </LayoutRoot>
+      {renderRoutes(routes)}
     </BrowserRouter>
   </Provider>
 );

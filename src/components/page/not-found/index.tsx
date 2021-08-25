@@ -1,11 +1,12 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import LayoutRoot from 'components/layout/root';
 
 const PageNotFound: React.FC = () => (
-  <div>
+  <LayoutRoot>
     <Helmet title="Not found"/>
     <h1>404 : Not Found</h1>
-  </div>
+  </LayoutRoot>
 );
 
 export default PageNotFound;

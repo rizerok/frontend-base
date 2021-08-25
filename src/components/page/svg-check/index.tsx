@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import LayoutRoot from 'components/layout/root';
 import { ReactComponent as WebpackSvg } from './webpack.svg';
 
 const DarkBg = styled.div`
@@ -8,14 +9,14 @@ const DarkBg = styled.div`
 `;
 
 const PageSvgCheck: React.FC = () => (
-  <div>
+  <LayoutRoot>
     <DarkBg>
       <WebpackSvg style={{
         width: '300px',
         height: '300px'
       }}/>
     </DarkBg>
-  </div>
+  </LayoutRoot>
 );
 
 export default PageSvgCheck;
