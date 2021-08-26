@@ -39,7 +39,17 @@
 
 ## TODO
 
-- [ ] tests for build
+- [ ] tests for build (check all scripts, check production build, check storybook)
 - [ ] change merge logic of webpack configs with lodash
 - [ ] create initial script(change project name, remove dirs, create files)
+  - [ ] install node-ssh
+  - [ ] create initial script
+  - [ ] in script:
+    - [ ] in package.json:
+      - [ ] rename name
+      - [ ] change version to 0.0.1
+      - [ ] change repository
+      - [ ] change bugs
+      - [ ] change homepage
+      - [ ] remove node-ssh
 
