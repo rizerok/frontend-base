@@ -1,76 +1,74 @@
-/* eslint global-require: "off", no-console: "off" */
-const merge = require('webpack-merge');
+/* eslint global-require: "off", no-console: "off", @typescript-eslint/no-var-requires: "off" */
 const dotenv = require('dotenv');
+const { mergeWith } = require('lodash');
 
 dotenv.config();
 
+// check same(not uniq) rule
 const sameRule = (a, b) => {
+  // check regexp
   if (String(a.test) !== String(b.test)) { // check test
     return false;
   }
 
-  let use1;
-  let use2;
-  // eslint-disable-next-line no-unused-expressions
-  Array.isArray(a.use) ? use1 = a.use : use1 = [a.use];
-  // eslint-disable-next-line no-unused-expressions
-  Array.isArray(b.use) ? use2 = b.use : use2 = [b.use];
+  // if use not array -> set array
+  const use1 = Array.isArray(a.use) ? a.use : [a.use];
+  const use2 = Array.isArray(b.use) ? b.use : [b.use];
+  // and check loaders count
   if (use1.length !== use2.length) { // check loaders count
     return false;
   }
 
-  for (let i = 0; i < use1.length; i++) { // check by loaders
+  for (let i = 0; i < use1.length; i++) { // check by loaders ordering
     if (use1[i].loader !== use2[i].loader) {
       return false;
     }
   }
 
+  // if conditions are not met -> rule is same, not uniq
   return true;
 };
 
-const mergeConfig = {
-  customizeArray(a, b, key) {
-    if (key === 'module.rules') {
-      const rules = b;
-      a.forEach(elA => {
-        if (rules.every(r => !sameRule(r, elA))) { // uniq
-          rules.push(elA);
+const mergeByStrategy = (configA, configB) => mergeWith(
+  configA,
+  configB,
+  (valueA, valueB, key, object, source, stack) => {
+    // strategy
+    if (key === 'rules') {
+      valueA.forEach(elA => {
+        if (valueB.every(r => !sameRule(r, elA))) { // if ruleA is uniq
+          valueB.push(elA);
         }
       });
-      return rules;
+      return valueB;
     }
-    return undefined;
-  },
-  customizeObject(a, b, key) {
-    if (key === 'entry') {
-      return b;
+    if (Array.isArray(valueA)) {
+      return valueA.concat(valueB);
     }
+
     return undefined;
   }
-};
+);
 
-module.exports = env => {
+module.exports = (env) => {
   const ENV = env || process.env.NODE_ENV || 'development';
-
   let clientConfig;
 
   console.log(`Run ${ENV} build.`);
 
+  const base = require('./webpack/webpack.client.js');
   // eslint-disable-next-line default-case
   switch (ENV) {
   case 'development': {
-    const base = require('./webpack/webpack.client.js');
     const dev = require('./webpack/webpack.dev.js');
-    clientConfig = merge(mergeConfig)(base, dev);
+    clientConfig = mergeByStrategy(base, dev);
     break;
   }
   case 'production': {
-    const base = require('./webpack/webpack.client.js');
     const prod = require('./webpack/webpack.prod.js');
-    clientConfig = merge(mergeConfig)(base, prod);
+    clientConfig = mergeByStrategy(base, prod);
     break;
   }
   }
-
   return clientConfig;
 };

@@ -40,7 +40,7 @@
 ## TODO
 
 - [ ] tests for build (check all scripts, check production build, check storybook)
-- [ ] change merge logic of webpack configs with lodash
+- [x] change merge logic of webpack configs with lodash
 - [ ] create initial script(change project name, remove dirs, create files)
   - [ ] install node-ssh
   - [ ] create initial script
