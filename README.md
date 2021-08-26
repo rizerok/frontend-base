@@ -5,6 +5,7 @@
   - index: pug
   - styles: styled-components
   - webpack configs: javascript
+  - tests: javascript
   - project src: typescript
 
 ## install
@@ -37,12 +38,21 @@
 `npm run commit` - helper for git.
 
 
-## TODO
+## TODOs
 
 - [ ] tests for build (check all scripts, check production build, check storybook)
+  - [x] check what webpack watch:dev running
+  - [ ] check what site reload when files change
+  - [ ] check hot reloading
+  - [ ] check storybook
+  - [ ] check build
+    - [ ] dev
+    - [ ] production
+    - [ ] create public dir
+    - [ ] check svgr
 - [x] change merge logic of webpack configs with lodash
 - [ ] create initial script(change project name, remove dirs, create files)
-  - [ ] install node-ssh
+  - [x] install shelljs
   - [ ] create initial script
   - [ ] in script:
     - [ ] in package.json:
@@ -51,5 +61,7 @@
       - [ ] change repository
       - [ ] change bugs
       - [ ] change homepage
-      - [ ] remove node-ssh
+      - [ ] remove shelljs
+      - [ ] remove lib-async-operations
+- [ ] think about generating index.html with from react with ssr
 

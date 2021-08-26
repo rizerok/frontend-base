@@ -25,7 +25,7 @@ const config = {
     before(app, server) {
       devServer = server;
     },
-    open: true,
+    open: process.env.IS_OPEN_CLIENT && JSON.parse(process.env.IS_OPEN_CLIENT),
     port: process.env.DEV_SERVER_PORT,
     contentBase: './public',
     writeToDisk: true,
