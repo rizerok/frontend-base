@@ -1,6 +1,8 @@
 #frontend-base
 - UI: react
 - store management: redux
+- bundler: webpack 5
+- TS transpiling: babel
 - languages:
   - index: pug
   - styles: styled-components
@@ -10,9 +12,10 @@
 
 ## install
 1) Clone this repository
-2) create ```.env``` like example ```example.env```
-3) npm i
-4) use npm scripts
+2) remove ```.git/``` dir
+3) create ```.env``` like example ```example.env```
+4) npm i
+5) use npm scripts
 ```json
   {
       "build:dev": "NODE_ENV=development webpack --progress",

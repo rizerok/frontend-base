@@ -1,3 +1,3 @@
 {
-  "*.(ts|tsx)": ["eslint -c \"./eslint/common.eslintrc.js\" --max-warnings=0 --no-ignore \"**/**.ts*\""]
+  "*.(ts|tsx)": ["tsc --noEmit && eslint -c \"./eslint/common.eslintrc.js\" --max-warnings=0 --no-ignore \"**/**.ts*\""]
 }
