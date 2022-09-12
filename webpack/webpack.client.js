@@ -2,7 +2,6 @@
 const { resolve } = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
 const alias = require('./alias');
@@ -22,10 +21,13 @@ const config = {
     rules: [
       jsRules,
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader'
-        ]
+        test: /\.(png|jpg|gif)$/,
+        type: 'asset/resource'
+      },
+      {
+        test: /\.svg$/i,
+        type: 'asset',
+        resourceQuery: /url/ // *.svg?url
       },
       {
         test: /\.pug$/,
@@ -35,25 +37,23 @@ const config = {
       },
       {
         test: /\.(woff(2)?|ttf|eot)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'fonts/'
-            }
-          }
-        ]
-      }
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext][query]'
+        }
+      },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
+        use: ['@svgr/webpack']
+      },
     ]
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'index.pug'
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css'
     }),
     new webpack.DefinePlugin({
       WORK_LAYOUT: process.env.WORK_LAYOUT

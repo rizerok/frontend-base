@@ -1,11 +1,20 @@
-import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import UiButton from './index';
 
-storiesOf('UiButton', module)
-  .add('with text', () => (
-    <UiButton>Hello Button</UiButton>
-  ))
-  .add('with some emoji', () => (
-    <UiButton>😀 😎 👍 💯</UiButton>
-  ));
+export default {
+  component: UiButton,
+  title: 'UiButton'
+} as ComponentMeta<typeof UiButton>;
+
+const Template: ComponentStory<typeof UiButton> = (args) => <UiButton {...args} />;
+
+export const HelloButton = Template.bind({});
+HelloButton.args = {
+  children: 'Hello Button'
+};
+
+export const WithSomeEmoji = Template.bind({});
+WithSomeEmoji.args = {
+  children: '😀 😎 👍 💯'
+};

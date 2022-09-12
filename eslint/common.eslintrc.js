@@ -25,6 +25,9 @@ module.exports = {
     'no-plusplus': 'off',
     'no-underscore-dangle': 'off',
     'import/no-unresolved': 'off',
+    'import/extensions': 'off',
+    'function-paren-newline': 'off',
+    'default-param-last': 'off',
     'space-before-function-paren': [
       'error',
       {

@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { withCss, withScreenIndents } from 'sbook/decorators';
 import { TransactionCategories } from '.';
@@ -27,15 +27,21 @@ const dataList = Array(4).fill(dataItem).map(el => ({
   __type: 'type'
 }));
 
-const dataCategories = Array(4).fill(0).map((el, i) => ({
-  title: `category ${i}`,
-  showList: i % 2 !== 0,
-  list: dataList
-}));
+const Template: ComponentStory<typeof TransactionCategories> = (args) => (
+  <TransactionCategories {...args}/>
+);
 
-storiesOf('Transaction', module)
-  .addDecorator(withCss)
-  .addDecorator(withScreenIndents)
-  .add('TransactionCategories', () => (
-    <TransactionCategories categories={dataCategories}/>
-  ));
+export default {
+  component: TransactionCategories,
+  title: 'TransactionCategories',
+  decorators: [withCss, withScreenIndents]
+} as ComponentMeta<typeof TransactionCategories>;
+
+export const Default = Template.bind({});
+Default.args = {
+  categories: Array(4).fill(0).map((el, i) => ({
+    title: `category ${i}`,
+    showList: i % 2 !== 0,
+    list: dataList
+  }))
+};

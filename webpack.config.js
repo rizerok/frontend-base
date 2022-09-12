@@ -50,11 +50,11 @@ const mergeByStrategy = (configA, configB) => mergeWith(
   }
 );
 
-module.exports = (env) => {
-  const ENV = env || process.env.NODE_ENV || 'development';
+module.exports = () => {
+  const ENV = process.env.NODE_ENV || 'development';
   let clientConfig;
 
-  console.log(`Run ${ENV} build.`);
+  console.log(`Run ${JSON.stringify(ENV)} build.`);
 
   const base = require('./webpack/webpack.client.js');
   // eslint-disable-next-line default-case
@@ -70,5 +70,8 @@ module.exports = (env) => {
     break;
   }
   }
+
+  console.log('clientConfig', clientConfig);
+
   return clientConfig;
 };

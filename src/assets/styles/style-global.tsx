@@ -4,14 +4,14 @@ import fonts from './style-fonts';
 
 const StyleGlobal = createGlobalStyle`
   ${fonts}
-  
+
   html {
     box-sizing: border-box;
     font-size: ${site.remValue};
     font-family: ${site.fontFirst};
     background: ${palette.html};
   }
-  
+
   body {
     font-size: ${site.fontSize};
   }

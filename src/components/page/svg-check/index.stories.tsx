@@ -1,8 +1,12 @@
-import { storiesOf } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import PageSvgCheck from '.';
 
-storiesOf('Page', module)
-  .add('PageSvgCheck', () => (
-    <PageSvgCheck/>
-  ));
+export default {
+  component: PageSvgCheck,
+  title: 'PageSvgCheck'
+} as ComponentMeta<typeof PageSvgCheck>;
+
+const Template: ComponentStory<typeof PageSvgCheck> = (args) => <PageSvgCheck {...args} />;
+
+export const Default = Template.bind({});

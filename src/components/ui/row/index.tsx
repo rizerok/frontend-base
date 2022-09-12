@@ -10,5 +10,4 @@ const UiRow = styled.div<UiRowProps>`
   }
 `;
 
-
 export default UiRow;

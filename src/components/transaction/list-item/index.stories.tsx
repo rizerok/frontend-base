@@ -1,9 +1,22 @@
-import { storiesOf } from '@storybook/react';
 import React from 'react';
-import UiRow from 'components/ui/row';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { withCss, withWorkLayout } from 'sbook/decorators';
 import TransactionListItem from '.';
 
-const data = {
+export default {
+  component: TransactionListItem,
+  title: 'TransactionListItem',
+  decorators: [withWorkLayout, withCss]
+} as ComponentMeta<typeof TransactionListItem>;
+
+const Template: ComponentStory<typeof TransactionListItem> = (args) => (
+  <div style={{ width: '300px' }}>
+    <TransactionListItem { ...args } />
+  </div>
+);
+
+export const Default = Template.bind({});
+Default.args = {
   call: { function: 'vote', args: [] },
   dApp: '3Mp2wnf9gnxexbaz9xQyBd3tPZVWpTWDpPb',
   fee: 0.005,
@@ -19,24 +32,3 @@ const data = {
   type: 16,
   version: 1
 };
-
-storiesOf('Transaction', module)
-  .add('TransactionLiseItem', () => (
-    <>
-      <UiRow indent="10px">
-        <div style={{ width: '200px' }}>
-          <TransactionListItem { ...data } />
-        </div>
-      </UiRow>
-      <UiRow indent="10px">
-        <div style={{ width: '400px' }}>
-          <TransactionListItem { ...data } />
-        </div>
-      </UiRow>
-      <UiRow indent="10px">
-        <div style={{ width: '600px' }}>
-          <TransactionListItem { ...data } />
-        </div>
-      </UiRow>
-    </>
-  ));

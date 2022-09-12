@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import LayoutRoot from 'components/layout/root';
-import { ReactComponent as WebpackSvg } from './webpack.svg';
+import WebpackSvg from './webpack.svg';
 
 const DarkBg = styled.div`
   background: #323232;

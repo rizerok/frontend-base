@@ -5,7 +5,9 @@ import backgroundImg from 'img/homepage.png';
 import { Link } from 'react-router-dom';
 import routes from 'src/routes';
 import LayoutRoot from 'components/layout/root';
-import { homepage as repositoryUrl } from 'root/package.json';
+import packageJson from 'root/package.json';
+
+const { homepage: repositoryUrl } = packageJson;
 
 const Background = styled.div`
   background-image: url(${backgroundImg});

@@ -29,7 +29,6 @@ const actionTransactionSet = (payload: TransactionList): ActionTransactionSet =>
   payload
 });
 
-
 export type TransactionsState = Readonly<{
   requestStart: boolean;
   requestEnd: boolean;
@@ -94,7 +93,6 @@ const isEqualFields = (filterObj: Partial<Transaction>, obj: Transaction): boole
   Object.keys(filterObj)
     .every(filterKey => filterObj[filterKey] === obj[filterKey])
 );
-
 
 export const selectCategories = (
   transactions: TransactionsState,

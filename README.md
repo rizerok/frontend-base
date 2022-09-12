@@ -46,10 +46,12 @@
   - [ ] check hot reloading
   - [ ] check storybook
   - [ ] check build
+    - [ ] run build and run puppeteer e2e tests
     - [ ] dev
     - [ ] production
     - [ ] create public dir
     - [ ] check svgr
+  - [ ] puppeteer e2e
 - [x] change merge logic of webpack configs with lodash
 - [ ] create initial script(change project name, remove dirs, create files)
   - [x] install shelljs

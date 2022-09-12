@@ -28,9 +28,10 @@ describe('scripts, npm run watch:dev', () => {
   });
 
   test('should be message about development build', () => {
-    expect(messages.findIndex(m => m.indexOf('Run development build.') !== -1)).not.toBe(-1);
+    expect(messages.findIndex(m => m.indexOf('Run "development" build.') !== -1)).not.toBe(-1);
   });
   test('should be message about Compiled successfully.', () => {
-    expect(messages.findIndex(m => m.indexOf('Compiled successfully.') !== -1)).not.toBe(-1);
+    console.log('messages', messages);
+    expect(messages.findIndex(m => m.indexOf('compiled successfully') !== -1)).not.toBe(-1);
   });
 });

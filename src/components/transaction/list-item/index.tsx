@@ -19,8 +19,11 @@ interface ImageProps {
 const Image = styled.img<ImageProps>`
   width: 100%;
   height: 150px;
-
-  ${(props): string => (props.isLoaded ? 'height: auto;' : '')}
+  display: inline-block;
+  background: #ccc;
+  object-fit: cover;
+  object-position: center;
+  ${(props): string => (props.isLoaded ? 'background: transparent' : '')}
 `;
 
 const grayColor = css`color: #7a89a6;`;
@@ -46,11 +49,11 @@ type CssCondition = FlattenSimpleInterpolation | '';
 
 const Row = styled.div<RowProps>`
   line-height: 1.2em;
-  
+
   & + & {
     margin-top: 15px;
   }
-  
+
   ${({ isGray }): CssCondition => (isGray ? grayColor : '')}
   ${({ isTitle }): CssCondition => (isTitle ? title : '')}
   ${({ isBetween }): CssCondition => (isBetween ? between : '')}

@@ -13,11 +13,11 @@ export const withRedux: DecoratorFn = (story) => (
   </Provider>
 );
 
-export const withCss: DecoratorFn = (story) => (
+export const withCss: DecoratorFn = (story, args) => (
   <>
     <StyleReset/>
     <StyleGlobal/>
-    { story() }
+    { story(args) }
   </>
 );
 
@@ -36,9 +36,9 @@ export const withScreenIndents: DecoratorFn = (story) => (
 
 const WorkLayout = createGlobalStyle`${workLayout}`;
 
-export const withWorkLayout: DecoratorFn = (story) => (
+export const withWorkLayout: DecoratorFn = (story, args) => (
   <>
     <WorkLayout/>
-    { story() }
+    { story(args) }
   </>
 );

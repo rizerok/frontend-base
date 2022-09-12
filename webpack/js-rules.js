@@ -1,6 +1,7 @@
 const plugins = [
   ['babel-plugin-styled-components', {
-    fileName: false
+    fileName: true,
+    displayName: true,
   }],
   '@babel/plugin-proposal-class-properties',
   [
@@ -12,7 +13,7 @@ const plugins = [
         }
       }
     }
-  ]
+  ],
 ];
 
 const loaderRules = {
@@ -35,4 +36,4 @@ const jsRules = {
   use: loaderRules
 };
 
-module.exports = { jsRules, loaderRules };
+module.exports = { jsRules, loaderRules, plugins };
