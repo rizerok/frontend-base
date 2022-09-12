@@ -11,7 +11,7 @@
     "lint:fix": "eslint \"**/**.ts*\" --fix",
     "commit": "git-cz",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "test-build": "jest"
+    "test:build": "jest"
   },
   "author": "Alex",
   "license": "ISC",
@@ -102,5 +102,18 @@
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.1.26",
     "yup": "^0.32.11"
+  },
+  "engines": {
+    "node": "^18.0.0",
+    "npm": "^8.0.0"
+  },
+  "overrides": {
+    "react": "$react",
+    "react-dom": "$react-dom",
+    "stylelint": "$stylelint",
+    "webpack": "$webpack",
+    "pug": "$pug",
+    "stylelint-order": "$stylelint-order",
+    "stylelint-scss": "$stylelint-scss"
   }
 }
