@@ -4,6 +4,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
+console.log('process.env.ROUTER_BASE', process.env.ROUTER_BASE);
+
 const alias = require('./alias');
 const { jsRules } = require('./js-rules');
 
@@ -56,7 +58,8 @@ const config = {
       template: 'index.pug'
     }),
     new webpack.DefinePlugin({
-      WORK_LAYOUT: process.env.WORK_LAYOUT
+      WORK_LAYOUT: process.env.WORK_LAYOUT,
+      ROUTER_BASE: process.env.ROUTER_BASE
     })
   ]
 };

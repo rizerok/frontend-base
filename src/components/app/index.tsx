@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, BrowserRouterProps } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import { renderRoutes } from 'react-router-config';
 import store from 'store';
@@ -13,9 +13,14 @@ import favicon from 'img/favicon.png';
 
 import routes from '../../routes';
 
+const routerProps: BrowserRouterProps = {};
+if (ROUTER_BASE) {
+  routerProps.basename = ROUTER_BASE;
+}
+
 const App: React.FC = () => (
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter {...routerProps}>
       <Helmet
         defaultTitle="React + Redux + Typescript + Styled components"
         titleTemplate="%s – React + Redux + Typescript + Styled components"

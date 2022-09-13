@@ -1,5 +1,6 @@
 // env client variables
 declare const WORK_LAYOUT: boolean;
+declare const ROUTER_BASE: string | false;
 // modules
 declare module '*.scss' {
   const content: {[className: string]: string};
